@@ -1,0 +1,26 @@
+*{
+   box-sizing: border-box; 
+}
+.box{
+    width:500px;
+    margin:50px auto;
+
+}
+
+.list .frmSearch{
+    text-align: right;
+}
+.title .id{
+    width:200px;
+    text-align: right;
+ }
+ .list .title{
+    border-width:2px 0;
+    background-color:#111;
+    color:#ff0;
+    padding:3px 0;
+ }
+ .list span{ display:inline-block;}
+ .list .id{width:80px; }
+ .list .name{ width:120px;}
+ .list .address{width:180px;}
