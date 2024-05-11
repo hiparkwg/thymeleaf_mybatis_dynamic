@@ -5,3 +5,7 @@ btnSearch.addEventListener('click', ()=>{
    frm.action="/member_search"
    frm.submit();
 });
+
+let view = (id)=>{
+    location.href="/member_view?id=" + id;
+}

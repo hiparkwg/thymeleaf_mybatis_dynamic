@@ -6,6 +6,6 @@ import lombok.Data;
 public class MemberVo {
     String id;
     String name;
-    String address;
+    String address1;
     String phone;
 }

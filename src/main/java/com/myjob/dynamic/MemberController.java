@@ -38,11 +38,12 @@ public class MemberController {
 
 
     @RequestMapping(path="/member_search", method=RequestMethod.POST)
-    public ModelAndView memberSearch(MemberVo vo){
+    public ModelAndView memberSearch(MemberVo vo, String findStr){
         ModelAndView mv = new ModelAndView();
 
-        List<MemberVo> list = dao.list(vo);
+        List<MemberVo> list = dao.list(findStr);
         mv.addObject("list", list);
+        mv.addObject("findStr", findStr);
 
         mv.setViewName("member/member_search"); // templates/member/member_search.html
         return mv;
@@ -65,6 +66,17 @@ public class MemberController {
         mv.setViewName("member/member_delete"); 
         return mv;
     }
+
+    @RequestMapping(path="/member_view")
+    public ModelAndView memberView(String id){
+        ModelAndView mv = new ModelAndView();
+        MemberVo vo = dao.view(id);
+        mv.addObject("vo", vo);
+        mv.setViewName("member/member_view"); 
+        return mv;
+    }
+
+
 
     @RequestMapping(path="/if")
     public ModelAndView ifTest(){

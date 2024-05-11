@@ -15,15 +15,20 @@ public class MemberDao {
         session = MyFactory.getSession();
     }
 
-    public List<MemberVo> list(MemberVo vo){
+    public List<MemberVo> list(String findStr){
         List<MemberVo> list;
-        String findStr = vo.getId();
         list = session.selectList("dynamic.list", findStr);
 
         System.out.println(list.size());
         return list;
     
     }
+
+    public MemberVo view(String id){
+        MemberVo vo = session.selectOne("dynamic.view", id);
+        return vo;
+    }
+
 
     public void ifTest(){
         List<MemberVo> list = session.selectList("dynamic.if", 1);

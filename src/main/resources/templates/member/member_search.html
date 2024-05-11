@@ -13,7 +13,7 @@
         <a href="/">HOME</a>
         <div class='cnt'>건수 : [[${list.size()}]]</div>
         <form name="frmSearch" method="post" class="frmSearch">
-            <input type="text" name="id" class="id"/>
+            <input type="text" name="findStr" class="findStr" th:value="${findStr}" />
             <input type="button" class="btnSearch" value="검색"/>
         </form>
         <div class="list">
@@ -24,10 +24,10 @@
                 <span class="phone">연락처</span>
             </div>
             <div class="items">
-                <div class="item" th:each="d : ${list}">
+                <div class="item" th:each="d : ${list}" th:onClick="view([[${d.id}]])">
                     <span class="id">[[${d.id}]]</span>
                     <span class="name">[[${d.name}]]</span>
-                    <span class="address">[[${d.address}]]</span>
+                    <span class="address">[[${d.address1}]]</span>
                     <span class="phone">[[${d.phone}]]</span>
                 </div>
                 

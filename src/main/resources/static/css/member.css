@@ -2,7 +2,7 @@
    box-sizing: border-box; 
 }
 .box{
-    width:500px;
+    width:600px;
     margin:50px auto;
 
 }
@@ -23,4 +23,4 @@
  .list span{ display:inline-block;}
  .list .id{width:80px; }
  .list .name{ width:120px;}
- .list .address{width:180px;}
+ .list .address{width:250px;}
