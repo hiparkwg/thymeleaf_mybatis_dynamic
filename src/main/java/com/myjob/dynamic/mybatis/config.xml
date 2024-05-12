@@ -5,20 +5,20 @@
   
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.myjob.dynamic.MemberVo" alias="MemberVo" />
+		<typeAlias type="com.myjob.dynamic.DynamicVo" alias="DynamicVo" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost:3306/lecture" />
+				<property name="url" value="jdbc:mysql://localhost:3306/lecture?allowMultiQueries=true" />
 				<property name="username" value="hong" />
 				<property name="password" value="1111" />
 			</dataSource>
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/myjob/dynamic/mybatis/member.xml" />
+		<mapper resource="com/myjob/dynamic/mybatis/dynamic.xml" />
 	</mappers>
 </configuration>

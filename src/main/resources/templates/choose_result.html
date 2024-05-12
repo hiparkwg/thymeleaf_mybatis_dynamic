@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic choose result</title>
+</head>
+<body>
+    <h1>choose result</h1>
+    <div th:each="vo : ${list}">
+        <span th:text="${vo.name}" >name</span>
+        <span th:text="${vo.phone}" >phone</span>
+        <span th:text="${vo.address1}" >address1</span>
+
+    </div>
+</body>
+</html>

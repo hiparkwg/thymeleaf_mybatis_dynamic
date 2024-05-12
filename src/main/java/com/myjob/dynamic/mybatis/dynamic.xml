@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper      
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"      
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dynamic">
+ 
+    <insert id='if' parameterType="DynamicVo">
+        insert into member(id) values(#{id});
+        <if test="picture != '' ">
+            insert into photos(id, picture) values(#{id}, #{picture})
+        </if>
+    </insert>
+
+    <select id="choose" parameterType="DynamicVo" resultType="DynamicVo">
+        select * from member
+
+        <where>
+            <choose>
+                <when test="name != null ">
+                    name like '%${name}%'    
+                </when>
+                <when test="phone != null ">
+                    phone like '%${phone}%'
+                </when>
+                <when test="address1 != null ">
+                    address1 like '%${address1}%'
+                </when>
+            </choose>
+        </where>
+    </select>
+
+
+    <insert id="foreach" parameterType="Map">
+        insert into photos(id, picture) values
+        <foreach collection="array" item="item"  separator=",">
+            (#{id}, #{item})
+        </foreach>
+    </insert>
+    
+    <select id="trim" parameterType="List" resultType="DynamicVo">
+        select * from member
+        <trim prefix='where' prefixOverrides='or'>
+            <foreach collection="array" item="find">
+                or name like '%${find}%'
+            </foreach>                
+        </trim>
+
+    </select>
+</mapper>

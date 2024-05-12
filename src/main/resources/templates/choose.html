@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic choose</title>
+</head>
+<body>
+    <h1>choose</h1>
+    <form name="frm" method="post" action="/choose_result">
+        <label><input type="radio" name="flag" value="name">이름으로 검새</label> 
+        <label><input type="radio" name="flag" value="phone">연락처로 검새</label> 
+        <label><input type="radio" name="flag" value="address1">주소로 검새</label> 
+        <br/>
+        <input type="text" name="findStr" value="1">
+        <button>검색</button>
+    </form>
+</body>
+</html>
